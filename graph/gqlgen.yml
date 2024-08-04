@@ -1,0 +1,22 @@
+# Where are all the schema files located? globs are supported eg  src/**/*.graphqls
+schema:
+  - graph/schema/*.graphqls
+
+# Where should the generated server code go?
+exec:
+  filename: resolver/generated.go
+  package: resolver
+
+# Where should any generated models go?
+model:
+  filename: resolver/model/models_gen.go
+  package: model
+
+# Where should the resolver implementations go?
+resolver:
+  layout: follow-schema
+  dir: resolver
+  package: resolver
+  filename_template: "{name}.resolvers.go"
+  # Optional: turn on to not generate template comments above resolvers
+  # omit_template_comment: false
